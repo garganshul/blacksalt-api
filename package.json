@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/garganshul/blacksalt-api/issues"
   },
-  "homepage": "https://github.com/garganshul/blacksalt-api#readme"
+  "homepage": "https://github.com/garganshul/blacksalt-api#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
