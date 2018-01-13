@@ -22,17 +22,54 @@ var routes = function(Booking){
         })
     })
     
-    bookingRouter.route('/:date').get(function(req,res){
-        let query = {};
-        query.date = req.params.date;
-        Booking.findById(req.params.date,function(err,bookings){
+    bookingRouter.use('/:bookingId',function(req,res,next){
+        Booking.findById(req.params.bookingId,function(err,booking){
             if(err){
                 res.status(500).send(err)
+            }else if(booking){
+                req.booking = booking;
+                next();
             }else{
-                res.json(bookings)
+                res.status(404).send("No booking found")
             }
         })
     })
+    bookingRouter.route('/:bookingId')
+    .get(function(req,res){
+        Booking.findById(req.params.bookingId,function(err,booking){          
+                res.json(req.booking)          
+        })
+    })
+    .put(function(req,res){
+        req.booking.title = req.body.title;
+        req.booking.date = req.body.date;
+        req.booking.timestamp = req.body.timestamp;
+        req.booking.people = req.body.people;
+        req.booking.booked = req.body.booked;
+        req.booking.save();
+        res.json(req.booking)      
+    })
+    .patch(function(req,res){
+        for(var p in req.body){
+            req.booking[p] = req.body[p]
+        }
+        req.booking.save(function(err){
+            if(err){
+                res.status(500).send(err)
+            }else{
+                res.json(req.booking)      
+            }
+        });
+    })
+    .delete(function(req,res){
+        req.booking.remove(function(err){
+            if(err){
+                res.status(500).send(err)
+            }else{
+                res.status(204).send('Removed')      
+            }
+        });
+    });
     return bookingRouter;
 }
 
