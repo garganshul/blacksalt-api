@@ -1,26 +1,21 @@
 var express = require('express'),
-mongoose = require('mongoose')
+mongoose = require('mongoose'),
+bodyParser = require('body-parser')
 
 var db = mongoose.connect('mongodb://localhost/blacksalt')
 
-var Booking = require('./models/bookingModel')
+var Booking = require('./Models/bookingModel')
 
 var app = express();
 var port = process.env.PORT || 3000
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
+var bookingRouter = require('./Routes/bookingRoute')(Booking);
 
-var bookingRouter = express.Router();
 
-bookingRouter.route('/Bookings').get(function(req,res){
-    Booking.find(function(err,bookings){
-        if(err){
-            res.status(500).send(err)
-        }else{
-            res.json(bookings)
-        }
-    })
-})
-
-app.use('/api', bookingRouter)
+app.use('/api/bookings', bookingRouter)
 app.get('/', function(req,res){
     res.send('welcome to my API')
 })
