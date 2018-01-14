@@ -15,7 +15,16 @@ var bookingModel = new Schema({
     title: {
         type: String
     },
-    timestamp: {
+    bookingDate: {
+        type: Number
+    },
+    bookingType: {
+        type: "ALA_CARTE" | "PLATE"
+    },
+    totalAmount: {
+        type: Number
+    },
+    advancedAmount: {
         type: Number
     }
 })
