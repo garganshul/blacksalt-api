@@ -8,8 +8,8 @@ var bookingModel = new Schema({
     people: {
         type: Number
     },
-    booked: {
-        type: Boolean,
+    status: {
+        type: String,
         default: false
     },
     title: {
@@ -18,14 +18,18 @@ var bookingModel = new Schema({
     bookingDate: {
         type: Number
     },
-    bookingType: {
-        type: "ALA_CARTE" | "PLATE"
+    partyType: {
+        type: String
     },
     totalAmount: {
         type: Number
     },
-    advancedAmount: {
+    advanceAmount: {
         type: Number
+    },
+    delete:{
+        type:Boolean,
+        default:false
     }
 })
 module.exports = mongoose.model('Booking', bookingModel)
