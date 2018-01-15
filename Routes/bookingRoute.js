@@ -9,7 +9,7 @@ var routes = function(Booking){
         res.status(201).send(booking)
     })
     .get(function(req,res){
-        let query = {};
+        var query = {};
         if(req.query.date){
             query.date = req.query.date
         }

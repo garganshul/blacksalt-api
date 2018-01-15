@@ -4,7 +4,7 @@ bodyParser = require('body-parser')
 
 var db = mongoose.connect('mongodb://localhost/blacksalt')
 
-var Booking = require('./Models/bookingModel')
+var Booking = require('./models/bookingModel.js')
 
 var app = express();
 var port = process.env.PORT || 3000

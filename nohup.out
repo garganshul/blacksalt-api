@@ -1,0 +1,30 @@
+[05:57:56] Using gulpfile ~/blacksalt-api/gulpfile.js
+[05:57:56] Starting 'default'...
+[05:57:56] Finished 'default' after 181 ms
+[05:57:56] [nodemon] 1.14.11
+[05:57:56] [nodemon] to restart at any time, enter `rs`
+[05:57:56] [nodemon] watching: *.*
+[05:57:56] [nodemon] starting `node app.js`
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+`open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+Running on PORT:8000
+[06:01:08] Using gulpfile ~/blacksalt-api/gulpfile.js
+[06:01:08] Starting 'default'...
+[06:01:08] Finished 'default' after 184 ms
+[06:01:08] [nodemon] 1.14.11
+[06:01:08] [nodemon] to restart at any time, enter `rs`
+[06:01:08] [nodemon] watching: *.*
+[06:01:08] [nodemon] starting `node app.js`
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+`open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+Running on PORT:8000
